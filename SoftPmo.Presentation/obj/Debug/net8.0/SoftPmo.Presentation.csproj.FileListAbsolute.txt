@@ -1,0 +1,12 @@
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\bin\Debug\net8.0\SoftPmo.Presentation.deps.json
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\bin\Debug\net8.0\SoftPmo.Presentation.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\bin\Debug\net8.0\SoftPmo.Presentation.pdb
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\net8.0\SoftPmo.Presentation.csproj.AssemblyReference.cache
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\net8.0\SoftPmo.Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\net8.0\SoftPmo.Presentation.AssemblyInfoInputs.cache
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\net8.0\SoftPmo.Presentation.AssemblyInfo.cs
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\net8.0\SoftPmo.Presentation.csproj.CoreCompileInputs.cache
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\net8.0\SoftPmo.Presentation.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\net8.0\refint\SoftPmo.Presentation.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\net8.0\SoftPmo.Presentation.pdb
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\net8.0\ref\SoftPmo.Presentation.dll

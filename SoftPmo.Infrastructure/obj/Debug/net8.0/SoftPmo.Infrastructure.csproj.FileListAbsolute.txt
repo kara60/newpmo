@@ -1,0 +1,11 @@
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Infrastructure\bin\Debug\net8.0\SoftPmo.Infrastructure.deps.json
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Infrastructure\bin\Debug\net8.0\SoftPmo.Infrastructure.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Infrastructure\bin\Debug\net8.0\SoftPmo.Infrastructure.pdb
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Infrastructure\obj\Debug\net8.0\SoftPmo.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Infrastructure\obj\Debug\net8.0\SoftPmo.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Infrastructure\obj\Debug\net8.0\SoftPmo.Infrastructure.AssemblyInfo.cs
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Infrastructure\obj\Debug\net8.0\SoftPmo.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Infrastructure\obj\Debug\net8.0\SoftPmo.Infrastructure.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Infrastructure\obj\Debug\net8.0\refint\SoftPmo.Infrastructure.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Infrastructure\obj\Debug\net8.0\SoftPmo.Infrastructure.pdb
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Infrastructure\obj\Debug\net8.0\ref\SoftPmo.Infrastructure.dll

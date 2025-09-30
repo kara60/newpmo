@@ -1,0 +1,6 @@
+@SoftPmo.WebApi_HostAddress = http://localhost:5188
+
+GET {{SoftPmo.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
