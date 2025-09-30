@@ -14,7 +14,17 @@ namespace SoftPmo.Persistance.Configurations.Activity
         public void Configure(EntityTypeBuilder<Notification> builder)
         {
             builder.ToTable("NOTIFICATION");
-            builder.HasKey(t => t.Id);
+            builder.HasKey(n => n.Id);
+
+            builder.HasOne(n => n.User)
+                .WithMany()
+                .HasForeignKey(n => n.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(n => n.NotificationType)
+                .WithMany(nt => nt.Notifications)
+                .HasForeignKey(n => n.NotificationTypeId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

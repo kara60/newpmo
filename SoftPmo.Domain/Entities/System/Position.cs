@@ -11,8 +11,8 @@ namespace SoftPmo.Domain.Entities.System
     public class Position : BaseEntity
     {
         public string Name { get; set; } = string.Empty;
-        public int DepartmentId { get; set; }
-        public int PositionLevelId { get; set; }
+        public string DepartmentId { get; set; } = string.Empty;
+        public string PositionLevelId { get; set; } = string.Empty;
         public decimal BillingMultiplier { get; set; } = 1.0m;
 
         // Navigation Properties

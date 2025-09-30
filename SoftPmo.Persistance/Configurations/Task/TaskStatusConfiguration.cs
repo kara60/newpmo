@@ -10,6 +10,11 @@ public sealed class TaskStatusConfiguration : IEntityTypeConfiguration<TaskStatu
     public void Configure(EntityTypeBuilder<TaskStatus> builder)
     {
         builder.ToTable("TASK_STATUS");
-        builder.HasKey(x => x.Id);
+        builder.HasKey(t => t.Id);
+
+        builder.HasOne(t => t.TaskStatusType)
+            .WithMany(tst => tst.TaskStatuses)
+            .HasForeignKey(t => t.TaskStatusTypeId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }
