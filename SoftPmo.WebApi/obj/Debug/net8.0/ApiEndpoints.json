@@ -1,12 +1,18 @@
 [
   {
-    "ContainingType": "SoftPmo.Presentation.Controllers.ValuesController",
-    "Method": "Get",
-    "RelativePath": "api/Values",
-    "HttpMethod": "GET",
+    "ContainingType": "SoftPmo.Presentation.Controllers.System.CodeTemplatesController",
+    "Method": "Create",
+    "RelativePath": "api/CodeTemplates/Create",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SoftPmo.Application.Features.CodeTemplateFeatures.Commands.System.CreateCodeTemplate.CreateCodeTemplateCommand",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

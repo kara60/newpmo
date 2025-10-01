@@ -15,3 +15,5 @@ C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\ne
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.pdb
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.genruntimeconfig.cache
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\ref\SoftPmo.Persistance.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\bin\Debug\net8.0\SoftPmo.Application.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\bin\Debug\net8.0\SoftPmo.Application.pdb

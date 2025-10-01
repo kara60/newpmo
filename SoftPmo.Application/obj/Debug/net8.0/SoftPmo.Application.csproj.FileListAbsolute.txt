@@ -9,3 +9,4 @@ C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Application\obj\Debug\ne
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Application\obj\Debug\net8.0\refint\SoftPmo.Application.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Application\obj\Debug\net8.0\SoftPmo.Application.pdb
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Application\obj\Debug\net8.0\ref\SoftPmo.Application.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Application\obj\Debug\net8.0\SoftPmo.Application.csproj.AssemblyReference.cache

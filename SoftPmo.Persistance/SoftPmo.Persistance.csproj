@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SoftPmo.Application\SoftPmo.Application.csproj" />
     <ProjectReference Include="..\SoftPmo.Domain\SoftPmo.Domain.csproj" />
   </ItemGroup>
 

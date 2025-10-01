@@ -416,6 +416,57 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("USER", (string)null);
                 });
 
+            modelBuilder.Entity("SoftPmo.Domain.Entities.Notification.NotificationM", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NotificationType")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("ReadDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("RelatedEntityId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("NOTIFICATION_M", (string)null);
+                });
+
             modelBuilder.Entity("SoftPmo.Domain.Entities.Project.ProjectM", b =>
                 {
                     b.Property<string>("Id")
@@ -1622,6 +1673,15 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("Position");
                 });
 
+            modelBuilder.Entity("SoftPmo.Domain.Entities.Notification.NotificationM", b =>
+                {
+                    b.HasOne("SoftPmo.Domain.Entities.HumanResources.User", "User")
+                        .WithMany("Notificatios")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("SoftPmo.Domain.Entities.Project.ProjectM", b =>
                 {
                     b.HasOne("SoftPmo.Domain.Entities.Customer.CustomerM", "Customer")
@@ -1922,6 +1982,8 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("MainResponsibleTasks");
 
                     b.Navigation("ManagedProjects");
+
+                    b.Navigation("Notificatios");
 
                     b.Navigation("ProjectMemberships");
 

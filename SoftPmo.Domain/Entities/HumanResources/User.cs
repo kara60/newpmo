@@ -1,6 +1,7 @@
 ﻿using SoftPmo.Domain.Abstractions;
 using SoftPmo.Domain.Entities.Activity;
 using SoftPmo.Domain.Entities.Attendance;
+using SoftPmo.Domain.Entities.Notification;
 using SoftPmo.Domain.Entities.Project;
 using SoftPmo.Domain.Entities.System;
 using SoftPmo.Domain.Entities.Task;
@@ -62,4 +63,5 @@ public class User : BaseEntity
     // NAVIGATION PROPERTIES - ATTENDANCE
     // ====================================
     public virtual ICollection<AttendanceSession> AttendanceSessions { get; set; } = new List<AttendanceSession>();
+    public virtual ICollection<NotificationM> Notificatios { get; set; } = new List<NotificationM>();
 }
