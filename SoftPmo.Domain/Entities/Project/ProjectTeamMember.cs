@@ -5,9 +5,10 @@ namespace SoftPmo.Domain.Entities.Project;
 
 public class ProjectTeamMember : BaseEntity
 {
-    public int ProjectId { get; set; }
-    public int UserId { get; set; }
-    public int ProjectRoleId { get; set; }
+    public string ProjectId { get; set; } = string.Empty;
+    public string UserId { get; set; } = string.Empty;
+    public string ProjectRoleId { get; set; } = string.Empty;
+
     public DateTime JoinDate { get; set; } = DateTime.UtcNow;
     public DateTime? LeaveDate { get; set; }
     public decimal? AllocationPercentage { get; set; }

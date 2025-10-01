@@ -1,5 +1,4 @@
 ﻿using SoftPmo.Domain.Abstractions;
-using SoftPmo.Domain.Entities.Notes;
 using SoftPmo.Domain.Entities.Project;
 using SoftPmo.Domain.Entities.Task;
 
@@ -26,5 +25,4 @@ public class CustomerM : BaseEntity
     public virtual ICollection<CustomerLocation> CustomerLocations { get; set; } = new List<CustomerLocation>();
     public virtual ICollection<ProjectM> Projects { get; set; } = new List<ProjectM>();
     public virtual ICollection<TaskM> Tasks { get; set; } = new List<TaskM>();
-    public virtual ICollection<Notebook> RelatedNotebooks { get; set; } = new List<Notebook>();
 }

@@ -2,9 +2,7 @@
 using SoftPmo.Domain.Entities.Activity;
 using SoftPmo.Domain.Entities.Customer;
 using SoftPmo.Domain.Entities.HumanResources;
-using SoftPmo.Domain.Entities.Notes;
 using SoftPmo.Domain.Entities.Project;
-using System.Diagnostics;
 
 namespace SoftPmo.Domain.Entities.Task;
 
@@ -43,5 +41,4 @@ public class TaskM : BaseEntity
     public virtual ICollection<TaskStep> TaskSteps { get; set; } = new List<TaskStep>();
     public virtual ICollection<TaskTodoItem> TodoItems { get; set; } = new List<TaskTodoItem>();
     public virtual ICollection<ActivityM> Activities { get; set; } = new List<ActivityM>();
-    public virtual ICollection<NotePage> RelatedNotePages { get; set; } = new List<NotePage>();
 }

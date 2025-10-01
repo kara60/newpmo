@@ -16,10 +16,6 @@ namespace SoftPmo.Persistance.Configurations.Attendance
             builder.ToTable("ATTENDANCE_SESSION");
             builder.HasKey(a => a.Id);
 
-            // Properties
-            builder.Property(a => a.CheckInQRToken).HasMaxLength(100);
-            builder.Property(a => a.CheckOutQRToken).HasMaxLength(100);
-
             // İlişkiler - İKİ LOCATION İLİŞKİSİ!
             builder.HasOne(a => a.User)
                 .WithMany(u => u.AttendanceSessions)

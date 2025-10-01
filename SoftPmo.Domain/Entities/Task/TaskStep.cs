@@ -8,16 +8,17 @@ namespace SoftPmo.Domain.Entities.Task;
 
 public class TaskStep : BaseEntity
 {
-    public int TaskId { get; set; }
-    public int StepId { get; set; }
-    public int AssignedUserId { get; set; }
-    public int DepartmentId { get; set; }
+    public string TaskId { get; set; } = string.Empty;
+    public string StepId { get; set; } = string.Empty;
+    public string AssignedUserId { get; set; } = string.Empty;
+    public string DepartmentId { get; set; } = string.Empty;
+    public string TaskStatusId { get; set; } = string.Empty;
+
     public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
     public int EstimatedDurationDays { get; set; }
     public decimal BillingMultiplier { get; set; } = 1.0m;
     public decimal BillingDurationDays { get; set; }
-    public int TaskStatusId { get; set; }
     public int SortOrder { get; set; }
     public bool IsRequired { get; set; } = true;
     public bool IsCompleted { get; set; } = false;

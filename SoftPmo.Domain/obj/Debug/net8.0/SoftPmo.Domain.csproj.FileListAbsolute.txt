@@ -1,10 +1,10 @@
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\bin\Debug\net8.0\SoftPmo.Domain.deps.json
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\bin\Debug\net8.0\SoftPmo.Domain.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\bin\Debug\net8.0\SoftPmo.Domain.pdb
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\obj\Debug\net8.0\SoftPmo.Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\obj\Debug\net8.0\SoftPmo.Domain.AssemblyInfoInputs.cache
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\obj\Debug\net8.0\SoftPmo.Domain.AssemblyInfo.cs
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\obj\Debug\net8.0\SoftPmo.Domain.csproj.CoreCompileInputs.cache
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\bin\Debug\net8.0\SoftPmo.Domain.deps.json
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\bin\Debug\net8.0\SoftPmo.Domain.dll
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\bin\Debug\net8.0\SoftPmo.Domain.pdb
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\obj\Debug\net8.0\SoftPmo.Domain.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\obj\Debug\net8.0\refint\SoftPmo.Domain.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Domain\obj\Debug\net8.0\SoftPmo.Domain.pdb

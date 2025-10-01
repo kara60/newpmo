@@ -1,13 +1,9 @@
 ﻿using SoftPmo.Domain.Abstractions;
 using SoftPmo.Domain.Entities.Activity;
 using SoftPmo.Domain.Entities.Attendance;
-using SoftPmo.Domain.Entities.Dashboard;
-using SoftPmo.Domain.Entities.Notes;
 using SoftPmo.Domain.Entities.Project;
-using SoftPmo.Domain.Entities.Reporting;
 using SoftPmo.Domain.Entities.System;
 using SoftPmo.Domain.Entities.Task;
-using System.Diagnostics;
 
 namespace SoftPmo.Domain.Entities.HumanResources;
 
@@ -66,36 +62,4 @@ public class User : BaseEntity
     // NAVIGATION PROPERTIES - ATTENDANCE
     // ====================================
     public virtual ICollection<AttendanceSession> AttendanceSessions { get; set; } = new List<AttendanceSession>();
-    public virtual ICollection<AttendanceException> AttendanceExceptions { get; set; } = new List<AttendanceException>();
-    public virtual ICollection<UserAttendanceRule> UserAttendanceRules { get; set; } = new List<UserAttendanceRule>();
-    // ApprovedByUser için collection yok (tek yönlü ilişki)
-
-    // ====================================
-    // NAVIGATION PROPERTIES - REPORTING
-    // ====================================
-    public virtual ICollection<DailyAttendanceReport> DailyAttendanceReports { get; set; } = new List<DailyAttendanceReport>();
-    public virtual ICollection<AttendanceSummary> AttendanceSummaries { get; set; } = new List<AttendanceSummary>();
-
-    // ====================================
-    // NAVIGATION PROPERTIES - DASHBOARD
-    // ====================================
-    public virtual ICollection<UserDashboardWidget> UserDashboardWidgets { get; set; } = new List<UserDashboardWidget>();
-
-    // ====================================
-    // NAVIGATION PROPERTIES - NOTES
-    // ====================================
-    public virtual ICollection<Notebook> OwnedNotebooks { get; set; } = new List<Notebook>();
-    public virtual ICollection<NotePage> CreatedPages { get; set; } = new List<NotePage>();
-    public virtual ICollection<NoteTag> CreatedTags { get; set; } = new List<NoteTag>();
-    public virtual ICollection<NoteComment> AuthoredComments { get; set; } = new List<NoteComment>();
-    public virtual ICollection<NotebookPermission> NotebookPermissions { get; set; } = new List<NotebookPermission>();
-
-    // Tek yönlü ilişkiler için collection yok:
-    // - LastModifiedByUser (NotePage)
-    // - ResolvedByUser (NoteComment)
-    // - GrantedByUser (NotebookPermission)
-    // - AddedByUser (NotePageTag)
-    // - UploadedByUser (NotePageAttachment)
-    // - CompletedByUser (TaskTodoItem)
-    // - UsedByUser (QRToken)
 }

@@ -5,7 +5,7 @@ namespace SoftPmo.Domain.Entities.Task;
 public class TaskStatus : BaseEntity
 {
     public string Name { get; set; } = string.Empty;
-    public int TaskStatusTypeId { get; set; }
+    public string TaskStatusTypeId { get; set; } = string.Empty;
     public string ColorCode { get; set; } = "#6B7280";
     public int SortOrder { get; set; }
     public bool IsSystemStatus { get; set; } = false;
