@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "av3CuVZ//Ww=",
+  "dgSpecHash": "8RqJhB1S4mA=",
   "success": true,
   "projectFilePath": "C:\\Users\\Enes Kara\\Desktop\\SoftProjects\\SoftPmo\\SoftPmo.Application\\SoftPmo.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Enes Kara\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\mediatr\\13.0.0\\mediatr.13.0.0.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",

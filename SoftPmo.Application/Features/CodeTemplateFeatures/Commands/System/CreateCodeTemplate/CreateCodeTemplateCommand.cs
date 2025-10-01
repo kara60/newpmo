@@ -6,7 +6,7 @@ public sealed record CreateCodeTemplateCommand(
     string EntityType,
     string CodeFormat,
     string Prefix,
-    bool UserYear,
+    bool UseYear,
     int SequenceLength,
     int StartingNumber,
     int CurrentNumber) : IRequest<CreateCodeTemplateCommandResponse>;

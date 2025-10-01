@@ -6,7 +6,11 @@ C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.WebApi.runtimeconfig.json
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.WebApi.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.WebApi.pdb
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Humanizer.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\MediatR.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\MediatR.Contracts.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -26,6 +30,10 @@ C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Mono.TextTemplating.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Npgsql.dll
@@ -91,9 +99,11 @@ C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.Application.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.Domain.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.Persistance.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.Presentation.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.Application.pdb
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.Persistance.pdb
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.Presentation.pdb
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.Domain.pdb
@@ -120,11 +130,3 @@ C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\obj\Debug\net8.0\
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\obj\Debug\net8.0\SoftPmo.WebApi.pdb
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\obj\Debug\net8.0\SoftPmo.WebApi.genruntimeconfig.cache
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\obj\Debug\net8.0\ref\SoftPmo.WebApi.dll
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\MediatR.dll
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\MediatR.Contracts.dll
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.Application.dll
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\SoftPmo.Application.pdb

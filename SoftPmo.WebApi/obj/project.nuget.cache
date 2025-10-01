@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Z7qcp/2fz94=",
+  "dgSpecHash": "NwoLZx1NFkM=",
   "success": true,
   "projectFilePath": "C:\\Users\\Enes Kara\\Desktop\\SoftProjects\\SoftPmo\\SoftPmo.WebApi\\SoftPmo.WebApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Enes Kara\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\Enes Kara\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+    "C:\\Users\\Enes Kara\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\mediatr\\13.0.0\\mediatr.13.0.0.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
@@ -29,6 +32,7 @@
     "C:\\Users\\Enes Kara\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.5.0\\microsoft.codeanalysis.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\microsoft.codeanalysis.csharp.workspaces\\4.5.0\\microsoft.codeanalysis.csharp.workspaces.4.5.0.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\4.5.0\\microsoft.codeanalysis.workspaces.common.4.5.0.nupkg.sha512",
+    "C:\\Users\\Enes Kara\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.20\\microsoft.entityframeworkcore.8.0.20.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.20\\microsoft.entityframeworkcore.abstractions.8.0.20.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.20\\microsoft.entityframeworkcore.analyzers.8.0.20.nupkg.sha512",

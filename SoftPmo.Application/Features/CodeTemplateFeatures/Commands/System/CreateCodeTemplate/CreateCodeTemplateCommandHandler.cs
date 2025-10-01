@@ -6,6 +6,12 @@ namespace SoftPmo.Application.Features.CodeTemplateFeatures.Commands.System.Crea
 public sealed class CreateCodeTemplateCommandHandler : IRequestHandler<CreateCodeTemplateCommand, CreateCodeTemplateCommandResponse>
 {
     private readonly ICodeTemplateService _codeTemplateService;
+
+    public CreateCodeTemplateCommandHandler(ICodeTemplateService codeTemplateService)
+    {
+        _codeTemplateService = codeTemplateService;
+    }
+
     public async Task<CreateCodeTemplateCommandResponse> Handle(CreateCodeTemplateCommand request, CancellationToken cancellationToken)
     {
         await _codeTemplateService.CreateAsync(request, cancellationToken);

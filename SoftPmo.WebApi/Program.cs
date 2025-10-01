@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<ICodeTemplateService, CodeTemplateService>();
 
+builder.Services.AddAutoMapper(typeof(SoftPmo.Persistance.AssemblyReference).Assembly);
+
 string connectionString = builder.Configuration.GetConnectionString("NewPmoDb");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
 

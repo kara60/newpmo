@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "fDlhQcjk1yw=",
+  "dgSpecHash": "oTdHw00yRIQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\Enes Kara\\Desktop\\SoftProjects\\SoftPmo\\SoftPmo.Presentation\\SoftPmo.Presentation.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Enes Kara\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\mediatr\\13.0.0\\mediatr.13.0.0.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Enes Kara\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.3.0\\microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
