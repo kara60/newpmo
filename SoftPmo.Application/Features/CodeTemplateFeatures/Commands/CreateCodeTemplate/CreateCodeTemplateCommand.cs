@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SoftPmo.Application.Features.CodeTemplateFeatures.Commands.System.CreateCodeTemplate;
+namespace SoftPmo.Application.Features.CodeTemplateFeatures.Commands.CreateCodeTemplate;
 
 public sealed record CreateCodeTemplateCommand(
     string EntityType,

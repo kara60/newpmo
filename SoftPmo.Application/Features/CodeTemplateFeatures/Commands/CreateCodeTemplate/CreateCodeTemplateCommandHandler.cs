@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using SoftPmo.Application.Services.System;
 
-namespace SoftPmo.Application.Features.CodeTemplateFeatures.Commands.System.CreateCodeTemplate;
+namespace SoftPmo.Application.Features.CodeTemplateFeatures.Commands.CreateCodeTemplate;
 
 public sealed class CreateCodeTemplateCommandHandler : IRequestHandler<CreateCodeTemplateCommand, CreateCodeTemplateCommandResponse>
 {

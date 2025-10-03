@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using SoftPmo.Application.Features.CodeTemplateFeatures.Commands.System.CreateCodeTemplate;
+using SoftPmo.Application.Features.CodeTemplateFeatures.Commands.CreateCodeTemplate;
 using SoftPmo.Application.Features.CodeTemplateFeatures.Queries.GetAllCodeTemplates;
 using SoftPmo.Application.Services.System;
 using SoftPmo.Domain.Entities.System;

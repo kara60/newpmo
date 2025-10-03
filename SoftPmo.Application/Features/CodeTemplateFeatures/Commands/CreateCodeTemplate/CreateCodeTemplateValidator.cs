@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace SoftPmo.Application.Features.CodeTemplateFeatures.Commands.System.CreateCodeTemplate;
+namespace SoftPmo.Application.Features.CodeTemplateFeatures.Commands.CreateCodeTemplate;
 
 public sealed class CreateCodeTemplateValidator : AbstractValidator<CreateCodeTemplateCommand>
 {

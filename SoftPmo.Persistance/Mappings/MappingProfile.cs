@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
-using SoftPmo.Application.Features.CodeTemplateFeatures.Commands.System.CreateCodeTemplate;
+using SoftPmo.Application.Features.CodeTemplateFeatures.Commands.CreateCodeTemplate;
+using SoftPmo.Application.Features.LocationFeatures.Commands.CreateLocation;
+using SoftPmo.Application.Features.LocationFeatures.Commands.UpdateLocation;
 using SoftPmo.Domain.Entities.System;
 
 namespace SoftPmo.Persistance.Mappings
@@ -8,7 +10,12 @@ namespace SoftPmo.Persistance.Mappings
     {
         public MappingProfile()
         {
+            // CodeTemplate mapping
             CreateMap<CreateCodeTemplateCommand, CodeTemplate>().ReverseMap();
+
+            // Location mapping
+            CreateMap<CreateLocationCommand, Location>();
+            CreateMap<UpdateLocationCommand, Location>();
         }
     }
 }

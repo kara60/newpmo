@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SoftPmo.Application.Features.CodeTemplateFeatures.Commands.System.CreateCodeTemplate;
+using SoftPmo.Application.Features.CodeTemplateFeatures.Commands.CreateCodeTemplate;
 using SoftPmo.Application.Features.CodeTemplateFeatures.Queries.GetAllCodeTemplates;
 using SoftPmo.Domain.Entities.System;
 using SoftPmo.Presentation.Abstraction;
