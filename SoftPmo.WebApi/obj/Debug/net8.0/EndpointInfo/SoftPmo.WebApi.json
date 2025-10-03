@@ -35,6 +35,18 @@
           }
         }
       }
+    },
+    "/api/CodeTemplates": {
+      "get": {
+        "tags": [
+          "CodeTemplates"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -54,7 +66,7 @@
             "type": "string",
             "nullable": true
           },
-          "userYear": {
+          "useYear": {
             "type": "boolean"
           },
           "sequenceLength": {

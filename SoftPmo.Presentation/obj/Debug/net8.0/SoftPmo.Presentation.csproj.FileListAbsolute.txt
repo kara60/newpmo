@@ -13,3 +13,5 @@ C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\n
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\net8.0\refint\SoftPmo.Presentation.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\net8.0\SoftPmo.Presentation.pdb
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\obj\Debug\net8.0\ref\SoftPmo.Presentation.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\bin\Debug\net8.0\SoftPmo.Domain.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Presentation\bin\Debug\net8.0\SoftPmo.Domain.pdb

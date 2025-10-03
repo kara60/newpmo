@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using SoftPmo.Application.Features.CodeTemplateFeatures.Commands.System.CreateCodeTemplate;
+using SoftPmo.Application.Features.CodeTemplateFeatures.Queries.GetAllCodeTemplates;
 using SoftPmo.Application.Services.System;
 using SoftPmo.Domain.Entities.System;
 using SoftPmo.Persistance.Context;
@@ -23,5 +25,13 @@ public sealed class CodeTemplateService : ICodeTemplateService
         
         await _context.Set<CodeTemplate>().AddAsync(codeTemplate, cancellationToken);
         await _context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task<IList<CodeTemplate>> GetAllAsync(GetAllCodeTemplateQuery request, CancellationToken cancellationToken)
+    {
+        IList<CodeTemplate> codeTemplates = await _context.Set<CodeTemplate>()
+            .Where(p => p.Code.ToLower().Contains(request.Search.ToLower()))
+            .ToListAsync(cancellationToken);
+        return codeTemplates;
     }
 }

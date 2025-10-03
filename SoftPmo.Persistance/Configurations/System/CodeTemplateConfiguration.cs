@@ -10,5 +10,6 @@ public sealed class CodeTemplateConfiguration : IEntityTypeConfiguration<CodeTem
     {
         builder.ToTable("CODE_TEMPLATE");
         builder.HasKey(x => x.Id);
+        builder.HasIndex(x => x.EntityType);
     }
 }

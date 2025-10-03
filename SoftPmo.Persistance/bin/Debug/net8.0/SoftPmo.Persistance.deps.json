@@ -29,6 +29,14 @@
           }
         }
       },
+      "FluentValidation/12.0.0": {
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.0.0"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
@@ -619,7 +627,9 @@
       "System.Threading.Channels/6.0.0": {},
       "SoftPmo.Application/1.0.0": {
         "dependencies": {
-          "MediatR": "13.0.0"
+          "FluentValidation": "12.0.0",
+          "MediatR": "13.0.0",
+          "SoftPmo.Domain": "1.0.0"
         },
         "runtime": {
           "SoftPmo.Application.dll": {
@@ -650,6 +660,13 @@
       "sha512": "sha512-0Rmg0zI5AFu1O/y//o9VGyhxKjhggWpk9mOA1tp0DEVx40c61bs+lnQv+0jUq8XbniF7FKgIVvI1perqiMtLrA==",
       "path": "automapper/12.0.0",
       "hashPath": "automapper.12.0.0.nupkg.sha512"
+    },
+    "FluentValidation/12.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8NVLxtMUXynRHJIX3Hn1ACovaqZIJASufXIIFkD0EUbcd5PmMsL1xUD5h548gCezJ5BzlITaR9CAMrGe29aWpA==",
+      "path": "fluentvalidation/12.0.0",
+      "hashPath": "fluentvalidation.12.0.0.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",

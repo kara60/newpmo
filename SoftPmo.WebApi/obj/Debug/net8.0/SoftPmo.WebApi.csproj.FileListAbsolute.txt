@@ -130,3 +130,6 @@ C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\obj\Debug\net8.0\
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\obj\Debug\net8.0\SoftPmo.WebApi.pdb
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\obj\Debug\net8.0\SoftPmo.WebApi.genruntimeconfig.cache
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\obj\Debug\net8.0\ref\SoftPmo.WebApi.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.WebApi\bin\Debug\net8.0\Newtonsoft.Json.dll

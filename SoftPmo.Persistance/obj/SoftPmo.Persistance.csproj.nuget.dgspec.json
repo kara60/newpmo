@@ -31,7 +31,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Enes Kara\\Desktop\\SoftProjects\\SoftPmo\\SoftPmo.Domain\\SoftPmo.Domain.csproj": {
+                "projectPath": "C:\\Users\\Enes Kara\\Desktop\\SoftProjects\\SoftPmo\\SoftPmo.Domain\\SoftPmo.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

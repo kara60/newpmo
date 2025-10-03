@@ -1,6 +1,16 @@
 [
   {
     "ContainingType": "SoftPmo.Presentation.Controllers.System.CodeTemplatesController",
+    "Method": "GetAll",
+    "RelativePath": "api/CodeTemplates",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.System.CodeTemplatesController",
     "Method": "Create",
     "RelativePath": "api/CodeTemplates/Create",
     "HttpMethod": "POST",

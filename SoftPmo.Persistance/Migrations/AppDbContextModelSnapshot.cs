@@ -813,6 +813,49 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("DEPARTMENT", (string)null);
                 });
 
+            modelBuilder.Entity("SoftPmo.Domain.Entities.System.ErrorLog", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("ErrorMessage")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("RequestMethod")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RequestPath")
+                        .HasColumnType("text");
+
+                    b.Property<string>("StackTrace")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("TimeStamp")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ERROR_LOG", (string)null);
+                });
+
             modelBuilder.Entity("SoftPmo.Domain.Entities.System.Location", b =>
                 {
                     b.Property<string>("Id")

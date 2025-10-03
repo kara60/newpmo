@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\CodeTemplateFeatures\Queries\" />
+    <ProjectReference Include="..\SoftPmo.Domain\SoftPmo.Domain.csproj" />
   </ItemGroup>
 
 </Project>
