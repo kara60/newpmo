@@ -1,7 +1,7 @@
 ﻿using SoftPmo.Domain.Abstractions;
 using SoftPmo.Domain.Entities.Customer;
 using SoftPmo.Domain.Entities.HumanResources;
-using SoftPmo.Domain.Entities.System;
+using SoftPmo.Domain.Entities.SystemBase;
 using SoftPmo.Domain.Entities.Task;
 using System.ComponentModel.DataAnnotations.Schema;
 

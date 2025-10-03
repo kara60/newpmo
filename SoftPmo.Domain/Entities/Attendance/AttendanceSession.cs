@@ -1,6 +1,6 @@
 ﻿using SoftPmo.Domain.Abstractions;
 using SoftPmo.Domain.Entities.HumanResources;
-using SoftPmo.Domain.Entities.System;
+using SoftPmo.Domain.Entities.SystemBase;
 
 namespace SoftPmo.Domain.Entities.Attendance;
 

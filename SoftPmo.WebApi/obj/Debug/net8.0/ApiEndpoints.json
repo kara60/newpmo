@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "SoftPmo.Presentation.Controllers.System.CodeTemplatesController",
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.CodeTemplatesController",
     "Method": "GetAll",
     "RelativePath": "api/CodeTemplates",
     "HttpMethod": "GET",
@@ -10,7 +10,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SoftPmo.Presentation.Controllers.System.CodeTemplatesController",
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.CodeTemplatesController",
     "Method": "Create",
     "RelativePath": "api/CodeTemplates/Create",
     "HttpMethod": "POST",
@@ -19,14 +19,124 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "SoftPmo.Application.Features.CodeTemplateFeatures.Commands.CreateCodeTemplate.CreateCodeTemplateCommand",
+        "Type": "SoftPmo.Application.Features.SystemBase.CodeTemplateFeatures.Commands.CreateCodeTemplate.CreateCodeTemplateCommand",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SoftPmo.Presentation.Controllers.System.LocationsController",
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.DepartmentsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Departments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsActive",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ParentDepartmentId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.DepartmentsController",
+    "Method": "GetById",
+    "RelativePath": "api/Departments/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.DepartmentsController",
+    "Method": "Delete",
+    "RelativePath": "api/Departments/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.DepartmentsController",
+    "Method": "Create",
+    "RelativePath": "api/Departments/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SoftPmo.Application.Features.SystemBase.DepartmentFeatures.Commands.CreateDepartment.CreateDepartmentCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.DepartmentsController",
+    "Method": "GetHierarchy",
+    "RelativePath": "api/Departments/GetHierarchy",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.DepartmentsController",
+    "Method": "Update",
+    "RelativePath": "api/Departments/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SoftPmo.Application.Features.SystemBase.DepartmentFeatures.Commands.UpdateDepartment.UpdateDepartmentCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.LocationsController",
     "Method": "GetAll",
     "RelativePath": "api/Locations",
     "HttpMethod": "GET",
@@ -57,7 +167,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SoftPmo.Presentation.Controllers.System.LocationsController",
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.LocationsController",
     "Method": "GetById",
     "RelativePath": "api/Locations/{id}",
     "HttpMethod": "GET",
@@ -73,7 +183,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SoftPmo.Presentation.Controllers.System.LocationsController",
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.LocationsController",
     "Method": "Delete",
     "RelativePath": "api/Locations/{id}",
     "HttpMethod": "DELETE",
@@ -89,7 +199,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SoftPmo.Presentation.Controllers.System.LocationsController",
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.LocationsController",
     "Method": "Create",
     "RelativePath": "api/Locations/Create",
     "HttpMethod": "POST",
@@ -98,14 +208,14 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "SoftPmo.Application.Features.LocationFeatures.Commands.CreateLocation.CreateLocationCommand",
+        "Type": "SoftPmo.Application.Features.SystemBase.LocationFeatures.Commands.CreateLocation.CreateLocationCommand",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SoftPmo.Presentation.Controllers.System.LocationsController",
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.LocationsController",
     "Method": "Update",
     "RelativePath": "api/Locations/Update",
     "HttpMethod": "PUT",
@@ -114,7 +224,413 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "SoftPmo.Application.Features.LocationFeatures.Commands.UpdateLocation.UpdateLocationCommand",
+        "Type": "SoftPmo.Application.Features.SystemBase.LocationFeatures.Commands.UpdateLocation.UpdateLocationCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.LocationTypesController",
+    "Method": "GetAll",
+    "RelativePath": "api/LocationTypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsActive",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.LocationTypesController",
+    "Method": "GetById",
+    "RelativePath": "api/LocationTypes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.LocationTypesController",
+    "Method": "Delete",
+    "RelativePath": "api/LocationTypes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.LocationTypesController",
+    "Method": "Create",
+    "RelativePath": "api/LocationTypes/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SoftPmo.Application.Features.SystemBase.LocationTypeFeatures.Commands.CreateLocationType.CreateLocationTypeCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.LocationTypesController",
+    "Method": "Update",
+    "RelativePath": "api/LocationTypes/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SoftPmo.Application.Features.SystemBase.LocationTypeFeatures.Commands.UpdateLocationType.UpdateLocationTypeCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.PositionLevelsController",
+    "Method": "GetAll",
+    "RelativePath": "api/PositionLevels",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsActive",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.PositionLevelsController",
+    "Method": "GetById",
+    "RelativePath": "api/PositionLevels/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.PositionLevelsController",
+    "Method": "Delete",
+    "RelativePath": "api/PositionLevels/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.PositionLevelsController",
+    "Method": "Create",
+    "RelativePath": "api/PositionLevels/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SoftPmo.Application.Features.SystemBase.PositionLevelFeatures.Commands.CreatePositionLevel.CreatePositionLevelCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.PositionLevelsController",
+    "Method": "Update",
+    "RelativePath": "api/PositionLevels/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SoftPmo.Application.Features.SystemBase.PositionLevelFeatures.Commands.UpdatePositionLevel.UpdatePositionLevelCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.PositionsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Positions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsActive",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "DepartmentId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PositionLevelId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.PositionsController",
+    "Method": "GetById",
+    "RelativePath": "api/Positions/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.PositionsController",
+    "Method": "Delete",
+    "RelativePath": "api/Positions/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.PositionsController",
+    "Method": "GetByDepartment",
+    "RelativePath": "api/Positions/ByDepartment/{departmentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "departmentId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.PositionsController",
+    "Method": "Create",
+    "RelativePath": "api/Positions/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SoftPmo.Application.Features.SystemBase.PositionFeatures.Commands.CreatePosition.CreatePositionCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.SystemBase.PositionsController",
+    "Method": "Update",
+    "RelativePath": "api/Positions/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SoftPmo.Application.Features.SystemBase.PositionFeatures.Commands.UpdatePosition.UpdatePositionCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.TaskM.PrioritiesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Priorities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsActive",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.TaskM.PrioritiesController",
+    "Method": "GetById",
+    "RelativePath": "api/Priorities/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.TaskM.PrioritiesController",
+    "Method": "Delete",
+    "RelativePath": "api/Priorities/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.TaskM.PrioritiesController",
+    "Method": "Create",
+    "RelativePath": "api/Priorities/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SoftPmo.Application.Features.TaskM.PriorityFeatures.Commands.CreatePriority.CreatePriorityCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SoftPmo.Presentation.Controllers.TaskM.PrioritiesController",
+    "Method": "Update",
+    "RelativePath": "api/Priorities/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SoftPmo.Application.Features.TaskM.PriorityFeatures.Commands.UpdatePriority.UpdatePriorityCommand",
         "IsRequired": true
       }
     ],

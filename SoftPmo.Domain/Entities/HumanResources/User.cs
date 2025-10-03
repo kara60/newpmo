@@ -3,7 +3,7 @@ using SoftPmo.Domain.Entities.Activity;
 using SoftPmo.Domain.Entities.Attendance;
 using SoftPmo.Domain.Entities.Notification;
 using SoftPmo.Domain.Entities.Project;
-using SoftPmo.Domain.Entities.System;
+using SoftPmo.Domain.Entities.SystemBase;
 using SoftPmo.Domain.Entities.Task;
 
 namespace SoftPmo.Domain.Entities.HumanResources;

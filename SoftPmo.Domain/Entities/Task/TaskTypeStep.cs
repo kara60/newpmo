@@ -1,5 +1,5 @@
 ﻿using SoftPmo.Domain.Abstractions;
-using SoftPmo.Domain.Entities.System;
+using SoftPmo.Domain.Entities.SystemBase;
 
 namespace SoftPmo.Domain.Entities.Task;
 

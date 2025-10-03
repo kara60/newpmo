@@ -1,7 +1,7 @@
 ﻿using SoftPmo.Domain.Abstractions;
 using SoftPmo.Domain.Entities.Activity;
 using SoftPmo.Domain.Entities.HumanResources;
-using SoftPmo.Domain.Entities.System;
+using SoftPmo.Domain.Entities.SystemBase;
 using System.Diagnostics;
 
 namespace SoftPmo.Domain.Entities.Task;

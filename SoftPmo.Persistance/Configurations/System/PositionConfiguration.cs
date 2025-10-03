@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SoftPmo.Domain.Entities.System;
+using SoftPmo.Domain.Entities.SystemBase;
 
-namespace SoftPmo.Persistance.Configurations.System;
+namespace SoftPmo.Persistance.Configurations.SystemBase;
 
 public sealed class PositionConfiguration : IEntityTypeConfiguration<Position>
 {

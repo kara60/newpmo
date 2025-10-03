@@ -2,9 +2,11 @@ using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using SoftPmo.Application.Behaviros;
-using SoftPmo.Application.Services.System;
+using SoftPmo.Application.Services.SystemBase;
+using SoftPmo.Application.Services.TaskM;
 using SoftPmo.Persistance.Context;
-using SoftPmo.Persistance.Services.System;
+using SoftPmo.Persistance.Services.SystemBase;
+using SoftPmo.Persistance.Services.TaskM;
 using SoftPmo.WebApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,11 @@ var builder = WebApplication.CreateBuilder(args);
 // System Services
 builder.Services.AddScoped<ICodeTemplateService, CodeTemplateService>();
 builder.Services.AddScoped<ILocationService, LocationService>();
+builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+builder.Services.AddScoped<IPositionService, PositionService>();
+builder.Services.AddScoped<ILocationTypeService, LocationTypeService>();
+builder.Services.AddScoped<IPositionLevelService, PositionLevelService>();
+builder.Services.AddScoped<IPriorityService, PriorityService>();
 
 // Middleware
 builder.Services.AddTransient<ExceptionMiddleware>();

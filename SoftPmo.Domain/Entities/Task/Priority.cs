@@ -9,6 +9,7 @@ public class Priority : BaseEntity
     public string ColorCode { get; set; } = "#6B7280";
     public string Icon { get; set; } = "fas fa-exclamation";
     public int DeadlineWarningHours { get; set; } = 24;
+    public int SortOrder { get; set; }
 
     // Navigation Properties
     public virtual ICollection<TaskM> Tasks { get; set; } = new List<TaskM>();

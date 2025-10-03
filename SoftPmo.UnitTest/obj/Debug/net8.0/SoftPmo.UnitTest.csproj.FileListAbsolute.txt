@@ -7,6 +7,7 @@ C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\SoftPmo.UnitTest.runtimeconfig.json
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\SoftPmo.UnitTest.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\SoftPmo.UnitTest.pdb
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\Castle.Core.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\Microsoft.TestPlatform.CoreUtilities.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\Microsoft.TestPlatform.PlatformAbstractions.dll
@@ -15,8 +16,10 @@ C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\Microsoft.TestPlatform.CrossPlatEngine.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\Microsoft.TestPlatform.Utilities.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.Common.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\Moq.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\NuGet.Frameworks.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\xunit.abstractions.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\xunit.assert.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\xunit.core.dll
@@ -86,6 +89,8 @@ C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\obj\Debug\net8.0\SoftPmo.UnitTest.csproj.AssemblyReference.cache
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\obj\Debug\net8.0\SoftPmo.UnitTest.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.UnitTest\obj\Debug\net8.0\SoftPmo.UnitTest.AssemblyInfoInputs.cache

@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using SoftPmo.Domain.Entities.System;
+using SoftPmo.Domain.Entities.SystemBase;
 using SoftPmo.Persistance.Context;
 
 namespace SoftPmo.WebApi.Middleware;
