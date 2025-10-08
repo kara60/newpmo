@@ -9,12 +9,7 @@ namespace SoftPmo.Domain.Entities.Task;
 public class TaskM : BaseEntity
 {
     public string Title { get; set; } = string.Empty;
-
-    // ❌ YANLIŞ
-    // public int CustomerId { get; set; }
-    // public int ProjectId { get; set; }
-
-    // ✅ DOĞRU - HEPSİ STRING!
+    public string Description { get; set; } = string.Empty;
     public string CustomerId { get; set; } = string.Empty;
     public string ProjectId { get; set; } = string.Empty;
     public string TaskTypeId { get; set; } = string.Empty;

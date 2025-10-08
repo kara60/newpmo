@@ -713,7 +713,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("PROJECT_TYPE", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.CodeTemplate", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.CodeTemplate", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -759,10 +759,12 @@ namespace SoftPmo.Persistance.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EntityType");
+
                     b.ToTable("CODE_TEMPLATE", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Department", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Department", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -813,7 +815,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("DEPARTMENT", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.ErrorLog", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.ErrorLog", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -856,7 +858,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("ERROR_LOG", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Location", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Location", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -904,7 +906,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("LOCATION", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.LocationType", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.LocationType", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -944,7 +946,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("LOCATION_TYPE", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Position", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Position", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -988,7 +990,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("POSITION", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.PositionLevel", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.PositionLevel", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -1028,7 +1030,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("POSITION_LEVEL", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.SystemParameter", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.SystemParameter", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -1102,6 +1104,9 @@ namespace SoftPmo.Persistance.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("integer");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("text");
@@ -1604,7 +1609,7 @@ namespace SoftPmo.Persistance.Migrations
                         .HasForeignKey("CustomerLocationId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", "Location")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", "Location")
                         .WithMany()
                         .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1641,17 +1646,17 @@ namespace SoftPmo.Persistance.Migrations
 
             modelBuilder.Entity("SoftPmo.Domain.Entities.Attendance.AttendanceSession", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", "CheckInLocation")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", "CheckInLocation")
                         .WithMany()
                         .HasForeignKey("CheckInLocationId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", "CheckOutLocation")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", "CheckOutLocation")
                         .WithMany()
                         .HasForeignKey("CheckOutLocationId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", null)
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", null)
                         .WithMany("CheckInSessions")
                         .HasForeignKey("LocationId");
 
@@ -1674,11 +1679,11 @@ namespace SoftPmo.Persistance.Migrations
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", null)
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", null)
                         .WithMany("CustomerLocations")
                         .HasForeignKey("LocationId");
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.LocationType", "LocationType")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.LocationType", "LocationType")
                         .WithMany()
                         .HasForeignKey("LocationTypeId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1690,7 +1695,7 @@ namespace SoftPmo.Persistance.Migrations
 
             modelBuilder.Entity("SoftPmo.Domain.Entities.HumanResources.User", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.System.Department", "Department")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Department", "Department")
                         .WithMany("Users")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1700,11 +1705,11 @@ namespace SoftPmo.Persistance.Migrations
                         .HasForeignKey("DirectManagerId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", null)
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", null)
                         .WithMany("Users")
                         .HasForeignKey("LocationId");
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Position", "Position")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Position", "Position")
                         .WithMany("Users")
                         .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1779,9 +1784,9 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Department", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Department", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", "Location")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", "Location")
                         .WithMany()
                         .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1791,7 +1796,7 @@ namespace SoftPmo.Persistance.Migrations
                         .HasForeignKey("ManagerId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Department", "ParentDepartment")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Department", "ParentDepartment")
                         .WithMany("SubDepartments")
                         .HasForeignKey("ParentDepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1803,23 +1808,23 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("ParentDepartment");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Location", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Location", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.System.LocationType", "LocationType")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.LocationType", "LocationType")
                         .WithMany("Locations")
                         .HasForeignKey("LocationTypeId");
 
                     b.Navigation("LocationType");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Position", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Position", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.System.Department", "Department")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Department", "Department")
                         .WithMany("Positions")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.PositionLevel", "PositionLevel")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.PositionLevel", "PositionLevel")
                         .WithMany("Positions")
                         .HasForeignKey("PositionLevelId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1898,7 +1903,7 @@ namespace SoftPmo.Persistance.Migrations
                         .HasForeignKey("AssignedUserId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Department", "Department")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Department", "Department")
                         .WithMany()
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1969,7 +1974,7 @@ namespace SoftPmo.Persistance.Migrations
 
             modelBuilder.Entity("SoftPmo.Domain.Entities.Task.TaskTypeStep", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.System.Department", "DefaultDepartment")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Department", "DefaultDepartment")
                         .WithMany()
                         .HasForeignKey("DefaultDepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -2055,7 +2060,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("Projects");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Department", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Department", b =>
                 {
                     b.Navigation("Positions");
 
@@ -2064,7 +2069,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Location", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Location", b =>
                 {
                     b.Navigation("CheckInSessions");
 
@@ -2073,17 +2078,17 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.LocationType", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.LocationType", b =>
                 {
                     b.Navigation("Locations");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Position", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Position", b =>
                 {
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.PositionLevel", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.PositionLevel", b =>
                 {
                     b.Navigation("Positions");
                 });
