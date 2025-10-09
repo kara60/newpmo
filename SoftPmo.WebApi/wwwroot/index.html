@@ -1,0 +1,535 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PMO - Modern Proje Yönetim Sistemi">
+    <meta name="theme-color" content="#2563EB">
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/images/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <title>PMO System</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #94a3b8;
+            }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-slide-in-left {
+            animation: slideInLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Mobile Sidebar */
+        @media (max-width: 1024px) {
+            .sidebar {
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100vh;
+                z-index: 50;
+                transform: translateX(-100%);
+            }
+
+                .sidebar.open {
+                    transform: translateX(0);
+                }
+
+            .sidebar-backdrop {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 40;
+                backdrop-filter: blur(4px);
+            }
+
+                .sidebar-backdrop.show {
+                    display: block;
+                    animation: fadeIn 0.3s;
+                }
+        }
+
+        .sidebar-link {
+            transition: all 0.2s;
+            position: relative;
+        }
+
+            .sidebar-link::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                height: 0;
+                width: 3px;
+                background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+                border-radius: 0 3px 3px 0;
+                transition: height 0.2s;
+            }
+
+            .sidebar-link:hover {
+                background: linear-gradient(90deg, #eff6ff 0%, transparent 100%);
+                color: #2563eb;
+            }
+
+                .sidebar-link:hover::before {
+                    height: 70%;
+                }
+
+            .sidebar-link.active {
+                background: linear-gradient(90deg, #dbeafe 0%, #eff6ff 100%);
+                color: #1d4ed8;
+                font-weight: 600;
+            }
+
+                .sidebar-link.active::before {
+                    height: 70%;
+                }
+
+        /* Submenu */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+            .submenu.open {
+                max-height: 500px;
+            }
+
+        .submenu-link {
+            padding-left: 3rem !important;
+            font-size: 0.8125rem;
+        }
+
+        /* Card */
+        .card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        /* Compact Mode */
+        .compact-card {
+            padding: 1rem !important;
+        }
+
+        .compact-table th {
+            padding: 0.75rem 1rem !important;
+            font-size: 0.75rem !important;
+        }
+
+        .compact-table td {
+            padding: 0.75rem 1rem !important;
+            font-size: 0.875rem !important;
+        }
+
+        .compact-header h1 {
+            font-size: 1.5rem !important;
+        }
+
+        .compact-header p {
+            font-size: 0.875rem !important;
+        }
+
+        /* Loading */
+        .spinner {
+            border: 3px solid #e5e7eb;
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Modal */
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            max-height: 90vh;
+        }
+
+        /* Table */
+        .table-row {
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+            .table-row:hover {
+                background: #f8fafc;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+
+        /* Input Focus */
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100">
+
+    <!-- Loading -->
+    <div id="loading-screen" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
+        <div class="text-center">
+            <div class="spinner mx-auto mb-4"></div>
+            <h2 class="text-xl font-bold gradient-text mb-2">PMO System</h2>
+            <p class="text-gray-600 text-sm">Yükleniyor...</p>
+        </div>
+    </div>
+
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
+
+    <!-- App -->
+    <div id="app" class="hidden min-h-screen">
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar fixed top-0 left-0 h-full bg-white z-40 lg:z-auto">
+
+            <!-- Logo -->
+            <div class="h-16 flex items-center justify-between px-4 border-b border-gray-100">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-project-diagram text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-lg gradient-text">PMO System</h1>
+                        <p class="text-xs text-gray-500">Proje Yönetimi</p>
+                    </div>
+                </div>
+                <!-- Close button (Mobile) -->
+                <button id="sidebar-close" class="lg:hidden text-gray-600 hover:text-gray-900 p-2">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <!-- User -->
+            <div class="p-3 border-b border-gray-100">
+                <div class="flex items-center space-x-3 p-2 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow">
+                        MY
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-semibold text-sm text-gray-800 truncate">Mehmet Yılmaz</p>
+                        <p class="text-xs text-gray-600">Senior Developer</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nav -->
+            <nav class="p-3 space-y-1 overflow-y-auto" style="height: calc(100% - 160px);">
+
+                <!-- Dashboard -->
+                <a href="#dashboard" class="sidebar-link flex items-center px-3 py-2 rounded-lg text-gray-700 text-sm">
+                    <i class="fas fa-home w-5 text-base"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+
+                <!-- İŞ YÖNETİMİ -->
+                <div class="pt-4">
+                    <p class="px-3 text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">İş Yönetimi</p>
+                    <a href="#my-tasks" class="sidebar-link flex items-center px-3 py-2 rounded-lg text-gray-700 text-sm">
+                        <i class="fas fa-tasks w-5 text-base"></i>
+                        <span class="ml-3">İşlerim</span>
+                        <span class="ml-auto bg-blue-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">5</span>
+                    </a>
+                    <a href="#all-tasks" class="sidebar-link flex items-center px-3 py-2 rounded-lg text-gray-700 text-sm">
+                        <i class="fas fa-list-check w-5 text-base"></i>
+                        <span class="ml-3">Tüm İşler</span>
+                    </a>
+                    <a href="#my-activities" class="sidebar-link flex items-center px-3 py-2 rounded-lg text-gray-700 text-sm">
+                        <i class="fas fa-clock w-5 text-base"></i>
+                        <span class="ml-3">Faaliyetlerim</span>
+                    </a>
+                    <a href="#activity-approvals" class="sidebar-link flex items-center px-3 py-2 rounded-lg text-gray-700 text-sm">
+                        <i class="fas fa-check-circle w-5 text-base"></i>
+                        <span class="ml-3">Faaliyet Onayları</span>
+                        <span class="ml-auto bg-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">3</span>
+                    </a>
+                </div>
+
+                <!-- PROJE YÖNETİMİ -->
+                <div class="pt-4">
+                    <p class="px-3 text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Proje Yönetimi</p>
+                    <a href="#projects" class="sidebar-link flex items-center px-3 py-2 rounded-lg text-gray-700 text-sm">
+                        <i class="fas fa-folder w-5 text-base"></i>
+                        <span class="ml-3">Projeler</span>
+                    </a>
+                    <a href="#customers" class="sidebar-link flex items-center px-3 py-2 rounded-lg text-gray-700 text-sm">
+                        <i class="fas fa-building w-5 text-base"></i>
+                        <span class="ml-3">Müşteriler</span>
+                    </a>
+                    <a href="#users" class="sidebar-link flex items-center px-3 py-2 rounded-lg text-gray-700 text-sm">
+                        <i class="fas fa-users w-5 text-base"></i>
+                        <span class="ml-3">Personel</span>
+                    </a>
+                </div>
+
+                <!-- TANIMLAMA EKRANLARI -->
+                <div class="pt-4">
+                    <button id="toggle-definitions" class="w-full flex items-center justify-between px-3 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider hover:text-gray-600">
+                        <span>Tanımlamalar</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div id="submenu-definitions" class="submenu space-y-1 mt-1">
+                        <!-- Lokasyon -->
+                        <a href="#locations" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-map-marker-alt w-4 text-sm"></i>
+                            <span class="ml-2">Lokasyonlar</span>
+                        </a>
+                        <a href="#location-types" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-map-pin w-4 text-sm"></i>
+                            <span class="ml-2">Lokasyon Tipleri</span>
+                        </a>
+                        <!-- Departman & Pozisyon -->
+                        <a href="#departments" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-sitemap w-4 text-sm"></i>
+                            <span class="ml-2">Departmanlar</span>
+                        </a>
+                        <a href="#position-levels" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-layer-group w-4 text-sm"></i>
+                            <span class="ml-2">Pozisyon Seviyeleri</span>
+                        </a>
+                        <a href="#positions" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-user-tag w-4 text-sm"></i>
+                            <span class="ml-2">Pozisyonlar</span>
+                        </a>
+                        <!-- İş Tanımları -->
+                        <a href="#task-types" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-clipboard-list w-4 text-sm"></i>
+                            <span class="ml-2">İş Tipleri</span>
+                        </a>
+                        <a href="#task-status-types" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-tags w-4 text-sm"></i>
+                            <span class="ml-2">İş Durum Tipleri</span>
+                        </a>
+                        <a href="#task-statuses" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-flag w-4 text-sm"></i>
+                            <span class="ml-2">İş Durumları</span>
+                        </a>
+                        <a href="#priorities" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-exclamation-triangle w-4 text-sm"></i>
+                            <span class="ml-2">Öncelikler</span>
+                        </a>
+                        <a href="#steps" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-shoe-prints w-4 text-sm"></i>
+                            <span class="ml-2">Adımlar</span>
+                        </a>
+                        <!-- Proje Tanımları -->
+                        <a href="#project-types" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-folder-tree w-4 text-sm"></i>
+                            <span class="ml-2">Proje Tipleri</span>
+                        </a>
+                        <a href="#project-statuses" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-circle-notch w-4 text-sm"></i>
+                            <span class="ml-2">Proje Durumları</span>
+                        </a>
+                        <a href="#project-roles" class="sidebar-link submenu-link flex items-center px-3 py-2 rounded-lg text-gray-700">
+                            <i class="fas fa-user-shield w-4 text-sm"></i>
+                            <span class="ml-2">Proje Rolleri</span>
+                        </a>
+                    </div>
+                </div>
+
+            </nav>
+
+        </aside>
+
+        <!-- Main -->
+        <div class="lg:ml-[280px] transition-all duration-300">
+
+            <!-- Header -->
+            <header class="h-16 glass sticky top-0 z-30 border-b border-gray-200/50 flex items-center justify-between px-4 lg:px-6 bg-white/90">
+
+                <!-- Mobile Menu -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-600 hover:text-primary-600 transition p-2">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+
+                <!-- Search -->
+                <div class="hidden lg:block relative w-96">
+                    <input type="text" placeholder="Ara... (Ctrl+K)"
+                           class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm bg-white/70 focus:bg-white transition">
+                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-3">
+                    <button class="relative text-gray-600 hover:text-primary-600 transition p-2 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-bell text-lg"></i>
+                        <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                    </button>
+                    <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-xs shadow cursor-pointer hover:shadow-lg transition">
+                        MY
+                    </div>
+                </div>
+
+            </header>
+
+            <!-- Content -->
+            <main id="content" class="p-4 lg:p-6">
+                <!-- Dynamic content -->
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- Toast -->
+    <div id="toast-container" class="fixed bottom-4 right-4 z-50 space-y-2"></div>
+
+    <!-- Modal Container -->
+    <div id="modal-container"></div>
+
+    <!-- Scripts -->
+    <script src="/js/app.js" type="module"></script>
+
+    <!-- PWA Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('✅ Service Worker registered'))
+                    .catch(err => console.log('❌ Service Worker registration failed:', err));
+            });
+        }
+    </script>
+
+</body>
+</html>

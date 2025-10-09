@@ -35,6 +35,8 @@ using SoftPmo.Application.Features.TaskM.PriorityFeatures.Commands.CreatePriorit
 using SoftPmo.Application.Features.TaskM.PriorityFeatures.Commands.UpdatePriority;
 using SoftPmo.Application.Features.TaskM.StepFeatures.Commands.CreateStep;
 using SoftPmo.Application.Features.TaskM.StepFeatures.Commands.UpdateStep;
+using SoftPmo.Application.Features.TaskM.TaskFeatures.Commands.CreateTask;
+using SoftPmo.Application.Features.TaskM.TaskFeatures.Commands.UpdateTask;
 using SoftPmo.Application.Features.TaskM.TaskStatusFeatures.Commands.CreateTaskStatus;
 using SoftPmo.Application.Features.TaskM.TaskStatusFeatures.Commands.UpdateTaskStatus;
 using SoftPmo.Application.Features.TaskM.TaskStatusTypeFeatures.Commands.CreateTaskStatusType;
@@ -136,6 +138,9 @@ namespace SoftPmo.Persistance.Mappings
 
             // NotificationM mapping
             CreateMap<CreateNotificationCommand, NotificationM>();
+
+            CreateMap<CreateTaskCommand, TaskM>();
+            CreateMap<UpdateTaskCommand, TaskM>();
 
             // ActivityM mapping
             CreateMap<CreateActivityCommand, ActivityM>();

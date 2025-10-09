@@ -1,3 +1,8 @@
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.csproj.AssemblyReference.cache
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.AssemblyInfoInputs.cache
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.AssemblyInfo.cs
+C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.csproj.CoreCompileInputs.cache
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\bin\Debug\net8.0\SoftPmo.Persistance.deps.json
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\bin\Debug\net8.0\SoftPmo.Persistance.runtimeconfig.json
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\bin\Debug\net8.0\SoftPmo.Persistance.dll
@@ -6,11 +11,6 @@ C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\bin\Debug\ne
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\bin\Debug\net8.0\SoftPmo.Domain.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\bin\Debug\net8.0\SoftPmo.Application.pdb
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\bin\Debug\net8.0\SoftPmo.Domain.pdb
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.csproj.AssemblyReference.cache
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.AssemblyInfoInputs.cache
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.AssemblyInfo.cs
-C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.csproj.CoreCompileInputs.cache
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo..F7B38076.Up2Date
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\SoftPmo.Persistance.dll
 C:\Users\Enes Kara\Desktop\SoftProjects\SoftPmo\SoftPmo.Persistance\obj\Debug\net8.0\refint\SoftPmo.Persistance.dll

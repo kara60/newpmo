@@ -135,9 +135,9 @@ public sealed class ActivityService : IActivityService
         // Güncelle
         activity.UserId = request.UserId;
         activity.TaskId = request.TaskId;
-        activity.StartTime = request.StartTime.TimeOfDay;
-        activity.EndTime = request.EndTime.TimeOfDay;
-        activity.TotalMinutes = request.DurationMinutes;
+        activity.StartTime = request.StartTime;
+        activity.EndTime = request.EndTime;
+        activity.DurationMinutes = request.DurationMinutes;
         activity.LocationId = request.LocationId;
         activity.CustomerLocationId = request.CustomerLocationId;
         activity.IsActive = request.IsActive;
@@ -185,7 +185,7 @@ public sealed class ActivityService : IActivityService
         //activity.IsApproved = isApproved;
         activity.ApprovedByUserId = approvedByUserId;
         activity.ApprovalDate = DateTime.UtcNow;
-        activity.ApprovalNotes = approvalNote;
+        activity.ApprovalNote = approvalNote;
         activity.UpdatedDate = DateTime.UtcNow;
 
         _context.Set<Domain.Entities.Activity.ActivityM>().Update(activity);
@@ -244,12 +244,12 @@ public sealed class ActivityService : IActivityService
         // Tarih aralığı filtresi
         if (request.StartDate.HasValue)
         {
-            query = query.Where(a => a.ActivityDate >= request.StartDate.Value.Date);
+            query = query.Where(a => a.StartTime >= request.StartDate.Value.Date);
         }
 
         if (request.EndDate.HasValue)
         {
-            query = query.Where(a => a.ActivityDate <= request.EndDate.Value.Date);
+            query = query.Where(a => a.EndTime <= request.EndDate.Value.Date);
         }
 
         // Sayfalama
@@ -295,12 +295,12 @@ public sealed class ActivityService : IActivityService
         // Tarih aralığı filtresi
         if (startDate.HasValue)
         {
-            query = query.Where(a => a.ActivityDate >= startDate.Value.Date);
+            query = query.Where(a => a.StartTime >= startDate.Value.Date);
         }
 
         if (endDate.HasValue)
         {
-            query = query.Where(a => a.ActivityDate <= endDate.Value.Date);
+            query = query.Where(a => a.EndTime <= endDate.Value.Date);
         }
 
         var activities = await query

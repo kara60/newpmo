@@ -179,9 +179,9 @@ public sealed class TaskService : ITaskService
         task.TaskTypeId = request.TaskTypeId;
         task.MainResponsibleUserId = request.MainResponsibleUserId;
         //task.DepartmentId = request.DepartmentId;
-        task.TotalEstimatedDays = request.EstimatedDurationDays;
+        task.EstimatedDurationDays = request.EstimatedDurationDays;
         task.StartDate = request.StartDate;
-        task.DeadlineDate = request.DueDate;
+        task.DueDate = request.DueDate;
         task.CompletedDate = request.CompletedDate;
         //task = request.BillingMultiplier;
         //task.BillingDuration = request.BillingDuration;
@@ -357,7 +357,7 @@ public sealed class TaskService : ITaskService
             .Include(t => t.TaskStatus)
             .Include(t => t.Priority)
             .Where(t => t.MainResponsibleUserId == userId && t.IsActive)
-            .OrderBy(t => t.DeadlineDate)
+            .OrderBy(t => t.DueDate)
             .ToListAsync(cancellationToken);
 
         return tasks;

@@ -125,6 +125,8 @@ public sealed class PositionService : IPositionService
         IQueryable<Position> query = _context.Set<Position>()
             .Include(p => p.Department)
             .Include(p => p.PositionLevel)
+            .Where(p => p.IsActive) // Sadece aktif pozisyonlar
+            .OrderBy(p => p.CreatedDate)
             .AsQueryable();
 
         // Arama filtresi

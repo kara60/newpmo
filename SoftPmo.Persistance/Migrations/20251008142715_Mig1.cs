@@ -90,6 +90,28 @@ namespace SoftPmo.Persistance.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ERROR_LOG",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "text", nullable: false),
+                    ErrorMessage = table.Column<string>(type: "text", nullable: true),
+                    StackTrace = table.Column<string>(type: "text", nullable: true),
+                    RequestPath = table.Column<string>(type: "text", nullable: true),
+                    RequestMethod = table.Column<string>(type: "text", nullable: true),
+                    TimeStamp = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Code = table.Column<string>(type: "text", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    CreatedBy = table.Column<string>(type: "text", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "text", nullable: true),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ERROR_LOG", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "LOCATION_TYPE",
                 columns: table => new
                 {
@@ -141,6 +163,7 @@ namespace SoftPmo.Persistance.Migrations
                     ColorCode = table.Column<string>(type: "text", nullable: true),
                     Icon = table.Column<string>(type: "text", nullable: true),
                     DeadlineWarningHours = table.Column<int>(type: "integer", nullable: false),
+                    SortOrder = table.Column<int>(type: "integer", nullable: false),
                     Code = table.Column<string>(type: "text", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
@@ -414,14 +437,15 @@ namespace SoftPmo.Persistance.Migrations
                     UserId = table.Column<string>(type: "text", nullable: true),
                     LocationId = table.Column<string>(type: "text", nullable: true),
                     CustomerLocationId = table.Column<string>(type: "text", nullable: true),
-                    ActivityStatusId = table.Column<string>(type: "text", nullable: true),
                     ApprovedByUserId = table.Column<string>(type: "text", nullable: true),
-                    ActivityDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    StartTime = table.Column<TimeSpan>(type: "interval", nullable: false),
-                    EndTime = table.Column<TimeSpan>(type: "interval", nullable: false),
-                    TotalMinutes = table.Column<int>(type: "integer", nullable: false),
-                    ApprovalNotes = table.Column<string>(type: "text", nullable: true),
+                    StartTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    EndTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DurationMinutes = table.Column<int>(type: "integer", nullable: false),
+                    Description = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: true),
+                    IsApproved = table.Column<bool>(type: "boolean", nullable: false),
                     ApprovalDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ApprovalNote = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
+                    ActivityStatusId = table.Column<string>(type: "text", nullable: true),
                     Code = table.Column<string>(type: "text", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
@@ -436,8 +460,7 @@ namespace SoftPmo.Persistance.Migrations
                         name: "FK_ACTIVITY_M_ACTIVITY_STATUS_ActivityStatusId",
                         column: x => x.ActivityStatusId,
                         principalTable: "ACTIVITY_STATUS",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_ACTIVITY_M_CUSTOMER_LOCATION_CustomerLocationId",
                         column: x => x.CustomerLocationId,
@@ -655,6 +678,35 @@ namespace SoftPmo.Persistance.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "NOTIFICATION_M",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "text", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: true),
+                    Title = table.Column<string>(type: "text", nullable: true),
+                    Message = table.Column<string>(type: "text", nullable: true),
+                    NotificationType = table.Column<string>(type: "text", nullable: true),
+                    IsRead = table.Column<bool>(type: "boolean", nullable: false),
+                    ReadDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    RelatedEntityId = table.Column<string>(type: "text", nullable: true),
+                    Code = table.Column<string>(type: "text", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    CreatedBy = table.Column<string>(type: "text", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "text", nullable: true),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NOTIFICATION_M", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_NOTIFICATION_M_USER_UserId",
+                        column: x => x.UserId,
+                        principalTable: "USER",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PROJECT_M",
                 columns: table => new
                 {
@@ -750,18 +802,21 @@ namespace SoftPmo.Persistance.Migrations
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
                     Title = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    Description = table.Column<string>(type: "character varying(2000)", maxLength: 2000, nullable: true),
                     CustomerId = table.Column<string>(type: "text", nullable: true),
                     ProjectId = table.Column<string>(type: "text", nullable: true),
                     TaskTypeId = table.Column<string>(type: "text", nullable: true),
-                    CreatedByUserId = table.Column<string>(type: "text", nullable: true),
                     MainResponsibleUserId = table.Column<string>(type: "text", nullable: true),
+                    DepartmentId = table.Column<string>(type: "text", nullable: true),
                     TaskStatusId = table.Column<string>(type: "text", nullable: true),
                     PriorityId = table.Column<string>(type: "text", nullable: true),
                     StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    DeadlineDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DueDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     CompletedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    TotalEstimatedDays = table.Column<int>(type: "integer", nullable: false),
-                    TotalBillingDays = table.Column<decimal>(type: "numeric", nullable: false),
+                    EstimatedDurationDays = table.Column<int>(type: "integer", nullable: false),
+                    BillingMultiplier = table.Column<decimal>(type: "numeric", nullable: false),
+                    BillingDuration = table.Column<decimal>(type: "numeric", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: true),
                     Code = table.Column<string>(type: "text", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
@@ -776,6 +831,12 @@ namespace SoftPmo.Persistance.Migrations
                         name: "FK_TASK_M_CUSTOMER_M_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "CUSTOMER_M",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_TASK_M_DEPARTMENT_DepartmentId",
+                        column: x => x.DepartmentId,
+                        principalTable: "DEPARTMENT",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -803,17 +864,16 @@ namespace SoftPmo.Persistance.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_TASK_M_USER_CreatedByUserId",
-                        column: x => x.CreatedByUserId,
-                        principalTable: "USER",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_TASK_M_USER_MainResponsibleUserId",
                         column: x => x.MainResponsibleUserId,
                         principalTable: "USER",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_TASK_M_USER_UserId",
+                        column: x => x.UserId,
+                        principalTable: "USER",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -953,6 +1013,11 @@ namespace SoftPmo.Persistance.Migrations
                 column: "CustomerLocationId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ACTIVITY_M_IsApproved_ApprovedByUserId",
+                table: "ACTIVITY_M",
+                columns: new[] { "IsApproved", "ApprovedByUserId" });
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ACTIVITY_M_LocationId",
                 table: "ACTIVITY_M",
                 column: "LocationId");
@@ -968,9 +1033,9 @@ namespace SoftPmo.Persistance.Migrations
                 column: "TaskStepId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ACTIVITY_M_UserId_ActivityDate",
+                name: "IX_ACTIVITY_M_UserId_StartTime",
                 table: "ACTIVITY_M",
-                columns: new[] { "UserId", "ActivityDate" });
+                columns: new[] { "UserId", "StartTime" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ATTENDANCE_SESSION_CheckInLocationId",
@@ -991,6 +1056,11 @@ namespace SoftPmo.Persistance.Migrations
                 name: "IX_ATTENDANCE_SESSION_UserId_SessionDate",
                 table: "ATTENDANCE_SESSION",
                 columns: new[] { "UserId", "SessionDate" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CODE_TEMPLATE_EntityType",
+                table: "CODE_TEMPLATE",
+                column: "EntityType");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CUSTOMER_LOCATION_CustomerId",
@@ -1026,6 +1096,11 @@ namespace SoftPmo.Persistance.Migrations
                 name: "IX_LOCATION_LocationTypeId",
                 table: "LOCATION",
                 column: "LocationTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_NOTIFICATION_M_UserId",
+                table: "NOTIFICATION_M",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_POSITION_DepartmentId",
@@ -1078,14 +1153,19 @@ namespace SoftPmo.Persistance.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TASK_M_CreatedByUserId",
-                table: "TASK_M",
-                column: "CreatedByUserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_TASK_M_CustomerId_ProjectId",
                 table: "TASK_M",
                 columns: new[] { "CustomerId", "ProjectId" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TASK_M_DepartmentId",
+                table: "TASK_M",
+                column: "DepartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TASK_M_DueDate",
+                table: "TASK_M",
+                column: "DueDate");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TASK_M_MainResponsibleUserId",
@@ -1111,6 +1191,11 @@ namespace SoftPmo.Persistance.Migrations
                 name: "IX_TASK_M_TaskTypeId",
                 table: "TASK_M",
                 column: "TaskTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TASK_M_UserId",
+                table: "TASK_M",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TASK_STATUS_TaskStatusTypeId",
@@ -1280,6 +1365,12 @@ namespace SoftPmo.Persistance.Migrations
 
             migrationBuilder.DropTable(
                 name: "CODE_TEMPLATE");
+
+            migrationBuilder.DropTable(
+                name: "ERROR_LOG");
+
+            migrationBuilder.DropTable(
+                name: "NOTIFICATION_M");
 
             migrationBuilder.DropTable(
                 name: "PROJECT_TEAM_MEMBER");

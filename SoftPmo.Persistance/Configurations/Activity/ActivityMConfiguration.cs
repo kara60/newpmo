@@ -11,7 +11,10 @@ public sealed class ActivityMConfiguration : IEntityTypeConfiguration<ActivityM>
         builder.ToTable("ACTIVITY_M");
         builder.HasKey(a => a.Id);
 
-        // İlişkiler - İKİ USER İLİŞKİSİ!
+        builder.Property(a => a.Description).HasMaxLength(1000);
+        builder.Property(a => a.ApprovalNote).HasMaxLength(500);
+
+        // İlişkiler
         builder.HasOne(a => a.User)
             .WithMany(u => u.Activities)
             .HasForeignKey(a => a.UserId)
@@ -42,11 +45,11 @@ public sealed class ActivityMConfiguration : IEntityTypeConfiguration<ActivityM>
             .HasForeignKey(a => a.CustomerLocationId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasOne(a => a.ActivityStatus)
-            .WithMany(s => s.Activities)
-            .HasForeignKey(a => a.ActivityStatusId)
-            .OnDelete(DeleteBehavior.Restrict);
+        // Indexes
+        builder.HasIndex(a => new { a.UserId, a.StartTime });
+        builder.HasIndex(a => a.TaskId);
+        builder.HasIndex(a => new { a.IsApproved, a.ApprovedByUserId });
 
-        builder.HasIndex(a => new { a.UserId, a.ActivityDate });
+        builder.HasQueryFilter(a => a.IsActive);
     }
 }

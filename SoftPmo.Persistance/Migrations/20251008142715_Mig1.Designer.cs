@@ -12,7 +12,7 @@ using SoftPmo.Persistance.Context;
 namespace SoftPmo.Persistance.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251001081935_Mig1")]
+    [Migration("20251008142715_Mig1")]
     partial class Mig1
     {
         /// <inheritdoc />
@@ -30,17 +30,15 @@ namespace SoftPmo.Persistance.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("ActivityDate")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<string>("ActivityStatusId")
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("ApprovalDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("ApprovalNotes")
-                        .HasColumnType("text");
+                    b.Property<string>("ApprovalNote")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<string>("ApprovedByUserId")
                         .HasColumnType("text");
@@ -57,26 +55,33 @@ namespace SoftPmo.Persistance.Migrations
                     b.Property<string>("CustomerLocationId")
                         .HasColumnType("text");
 
-                    b.Property<TimeSpan>("EndTime")
-                        .HasColumnType("interval");
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
+
+                    b.Property<int>("DurationMinutes")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsApproved")
                         .HasColumnType("boolean");
 
                     b.Property<string>("LocationId")
                         .HasColumnType("text");
 
-                    b.Property<TimeSpan>("StartTime")
-                        .HasColumnType("interval");
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("TaskId")
                         .HasColumnType("text");
 
                     b.Property<string>("TaskStepId")
                         .HasColumnType("text");
-
-                    b.Property<int>("TotalMinutes")
-                        .HasColumnType("integer");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("text");
@@ -101,7 +106,9 @@ namespace SoftPmo.Persistance.Migrations
 
                     b.HasIndex("TaskStepId");
 
-                    b.HasIndex("UserId", "ActivityDate");
+                    b.HasIndex("IsApproved", "ApprovedByUserId");
+
+                    b.HasIndex("UserId", "StartTime");
 
                     b.ToTable("ACTIVITY_M", (string)null);
                 });
@@ -419,6 +426,57 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("USER", (string)null);
                 });
 
+            modelBuilder.Entity("SoftPmo.Domain.Entities.Notification.NotificationM", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NotificationType")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("ReadDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("RelatedEntityId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("NOTIFICATION_M", (string)null);
+                });
+
             modelBuilder.Entity("SoftPmo.Domain.Entities.Project.ProjectM", b =>
                 {
                     b.Property<string>("Id")
@@ -665,7 +723,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("PROJECT_TYPE", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.CodeTemplate", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.CodeTemplate", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -711,10 +769,12 @@ namespace SoftPmo.Persistance.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EntityType");
+
                     b.ToTable("CODE_TEMPLATE", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Department", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Department", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -765,7 +825,50 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("DEPARTMENT", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Location", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.ErrorLog", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("ErrorMessage")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("RequestMethod")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RequestPath")
+                        .HasColumnType("text");
+
+                    b.Property<string>("StackTrace")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("TimeStamp")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ERROR_LOG", (string)null);
+                });
+
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Location", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -813,7 +916,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("LOCATION", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.LocationType", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.LocationType", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -853,7 +956,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("LOCATION_TYPE", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Position", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Position", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -897,7 +1000,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("POSITION", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.PositionLevel", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.PositionLevel", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -937,7 +1040,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.ToTable("POSITION_LEVEL", (string)null);
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.SystemParameter", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.SystemParameter", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -1012,6 +1115,9 @@ namespace SoftPmo.Persistance.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("integer");
+
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("text");
 
@@ -1068,6 +1174,12 @@ namespace SoftPmo.Persistance.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("text");
 
+                    b.Property<decimal>("BillingDuration")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("BillingMultiplier")
+                        .HasColumnType("numeric");
+
                     b.Property<string>("Code")
                         .HasColumnType("text");
 
@@ -1077,17 +1189,24 @@ namespace SoftPmo.Persistance.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("text");
 
-                    b.Property<string>("CreatedByUserId")
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("CustomerId")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("DeadlineDate")
+                    b.Property<string>("DepartmentId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(2000)
+                        .HasColumnType("character varying(2000)");
+
+                    b.Property<DateTime>("DueDate")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("EstimatedDurationDays")
+                        .HasColumnType("integer");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
@@ -1115,21 +1234,20 @@ namespace SoftPmo.Persistance.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("character varying(500)");
 
-                    b.Property<decimal>("TotalBillingDays")
-                        .HasColumnType("numeric");
-
-                    b.Property<int>("TotalEstimatedDays")
-                        .HasColumnType("integer");
-
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatedByUserId");
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("DueDate");
 
                     b.HasIndex("MainResponsibleUserId");
 
@@ -1140,6 +1258,8 @@ namespace SoftPmo.Persistance.Migrations
                     b.HasIndex("TaskStatusId");
 
                     b.HasIndex("TaskTypeId");
+
+                    b.HasIndex("UserId");
 
                     b.HasIndex("CustomerId", "ProjectId");
 
@@ -1498,10 +1618,9 @@ namespace SoftPmo.Persistance.Migrations
 
             modelBuilder.Entity("SoftPmo.Domain.Entities.Activity.ActivityM", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.Activity.ActivityStatus", "ActivityStatus")
+                    b.HasOne("SoftPmo.Domain.Entities.Activity.ActivityStatus", null)
                         .WithMany("Activities")
-                        .HasForeignKey("ActivityStatusId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("ActivityStatusId");
 
                     b.HasOne("SoftPmo.Domain.Entities.HumanResources.User", "ApprovedByUser")
                         .WithMany()
@@ -1513,7 +1632,7 @@ namespace SoftPmo.Persistance.Migrations
                         .HasForeignKey("CustomerLocationId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", "Location")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", "Location")
                         .WithMany()
                         .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1533,8 +1652,6 @@ namespace SoftPmo.Persistance.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.Navigation("ActivityStatus");
-
                     b.Navigation("ApprovedByUser");
 
                     b.Navigation("CustomerLocation");
@@ -1550,17 +1667,17 @@ namespace SoftPmo.Persistance.Migrations
 
             modelBuilder.Entity("SoftPmo.Domain.Entities.Attendance.AttendanceSession", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", "CheckInLocation")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", "CheckInLocation")
                         .WithMany()
                         .HasForeignKey("CheckInLocationId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", "CheckOutLocation")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", "CheckOutLocation")
                         .WithMany()
                         .HasForeignKey("CheckOutLocationId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", null)
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", null)
                         .WithMany("CheckInSessions")
                         .HasForeignKey("LocationId");
 
@@ -1583,11 +1700,11 @@ namespace SoftPmo.Persistance.Migrations
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", null)
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", null)
                         .WithMany("CustomerLocations")
                         .HasForeignKey("LocationId");
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.LocationType", "LocationType")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.LocationType", "LocationType")
                         .WithMany()
                         .HasForeignKey("LocationTypeId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1599,7 +1716,7 @@ namespace SoftPmo.Persistance.Migrations
 
             modelBuilder.Entity("SoftPmo.Domain.Entities.HumanResources.User", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.System.Department", "Department")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Department", "Department")
                         .WithMany("Users")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1609,11 +1726,11 @@ namespace SoftPmo.Persistance.Migrations
                         .HasForeignKey("DirectManagerId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", null)
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", null)
                         .WithMany("Users")
                         .HasForeignKey("LocationId");
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Position", "Position")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Position", "Position")
                         .WithMany("Users")
                         .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1623,6 +1740,15 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("DirectManager");
 
                     b.Navigation("Position");
+                });
+
+            modelBuilder.Entity("SoftPmo.Domain.Entities.Notification.NotificationM", b =>
+                {
+                    b.HasOne("SoftPmo.Domain.Entities.HumanResources.User", "User")
+                        .WithMany("Notificatios")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SoftPmo.Domain.Entities.Project.ProjectM", b =>
@@ -1679,9 +1805,9 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Department", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Department", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.System.Location", "Location")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Location", "Location")
                         .WithMany()
                         .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1691,7 +1817,7 @@ namespace SoftPmo.Persistance.Migrations
                         .HasForeignKey("ManagerId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Department", "ParentDepartment")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Department", "ParentDepartment")
                         .WithMany("SubDepartments")
                         .HasForeignKey("ParentDepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1703,23 +1829,23 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("ParentDepartment");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Location", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Location", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.System.LocationType", "LocationType")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.LocationType", "LocationType")
                         .WithMany("Locations")
                         .HasForeignKey("LocationTypeId");
 
                     b.Navigation("LocationType");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Position", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Position", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.System.Department", "Department")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Department", "Department")
                         .WithMany("Positions")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.PositionLevel", "PositionLevel")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.PositionLevel", "PositionLevel")
                         .WithMany("Positions")
                         .HasForeignKey("PositionLevelId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1731,14 +1857,14 @@ namespace SoftPmo.Persistance.Migrations
 
             modelBuilder.Entity("SoftPmo.Domain.Entities.Task.TaskM", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.HumanResources.User", "CreatedByUser")
-                        .WithMany("CreatedTasks")
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("SoftPmo.Domain.Entities.Customer.CustomerM", "Customer")
                         .WithMany("Tasks")
                         .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SoftPmo.Domain.Entities.HumanResources.User", "MainResponsibleUser")
@@ -1766,9 +1892,13 @@ namespace SoftPmo.Persistance.Migrations
                         .HasForeignKey("TaskTypeId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.Navigation("CreatedByUser");
+                    b.HasOne("SoftPmo.Domain.Entities.HumanResources.User", null)
+                        .WithMany("CreatedTasks")
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Customer");
+
+                    b.Navigation("Department");
 
                     b.Navigation("MainResponsibleUser");
 
@@ -1798,7 +1928,7 @@ namespace SoftPmo.Persistance.Migrations
                         .HasForeignKey("AssignedUserId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SoftPmo.Domain.Entities.System.Department", "Department")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Department", "Department")
                         .WithMany()
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1869,7 +1999,7 @@ namespace SoftPmo.Persistance.Migrations
 
             modelBuilder.Entity("SoftPmo.Domain.Entities.Task.TaskTypeStep", b =>
                 {
-                    b.HasOne("SoftPmo.Domain.Entities.System.Department", "DefaultDepartment")
+                    b.HasOne("SoftPmo.Domain.Entities.SystemBase.Department", "DefaultDepartment")
                         .WithMany()
                         .HasForeignKey("DefaultDepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -1926,6 +2056,8 @@ namespace SoftPmo.Persistance.Migrations
 
                     b.Navigation("ManagedProjects");
 
+                    b.Navigation("Notificatios");
+
                     b.Navigation("ProjectMemberships");
 
                     b.Navigation("Subordinates");
@@ -1953,7 +2085,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("Projects");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Department", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Department", b =>
                 {
                     b.Navigation("Positions");
 
@@ -1962,7 +2094,7 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Location", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Location", b =>
                 {
                     b.Navigation("CheckInSessions");
 
@@ -1971,17 +2103,17 @@ namespace SoftPmo.Persistance.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.LocationType", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.LocationType", b =>
                 {
                     b.Navigation("Locations");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.Position", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.Position", b =>
                 {
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("SoftPmo.Domain.Entities.System.PositionLevel", b =>
+            modelBuilder.Entity("SoftPmo.Domain.Entities.SystemBase.PositionLevel", b =>
                 {
                     b.Navigation("Positions");
                 });

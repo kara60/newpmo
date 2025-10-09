@@ -37,6 +37,7 @@ builder.Services.AddScoped<ITaskStatusTypeService, TaskStatusTypeService>();
 builder.Services.AddScoped<ITaskTypeService, TaskTypeService>();
 builder.Services.AddScoped<ITaskStatusService, TaskStatusService>();
 builder.Services.AddScoped<IStepService, StepService>();
+builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddScoped<IProjectTypeService, ProjectTypeService>();
 builder.Services.AddScoped<IProjectStatusService, ProjectStatusService>();
 builder.Services.AddScoped<IProjectRoleService, ProjectRoleService>();
@@ -87,6 +88,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 app.UseMiddlewareExtensions();
 
 app.UseHttpsRedirection();
@@ -94,5 +98,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapFallbackToFile("index.html");
 
 app.Run();

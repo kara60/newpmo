@@ -12,13 +12,9 @@ public sealed class TaskMConfiguration : IEntityTypeConfiguration<TaskM>
         builder.HasKey(t => t.Id);
 
         builder.Property(t => t.Title).HasMaxLength(500).IsRequired();
+        builder.Property(t => t.Description).HasMaxLength(2000);
 
-        // İlişkiler - İKİ USER İLİŞKİSİ!
-        builder.HasOne(t => t.CreatedByUser)
-            .WithMany(u => u.CreatedTasks)
-            .HasForeignKey(t => t.CreatedByUserId)
-            .OnDelete(DeleteBehavior.Restrict);
-
+        // İlişkiler
         builder.HasOne(t => t.MainResponsibleUser)
             .WithMany(u => u.MainResponsibleTasks)
             .HasForeignKey(t => t.MainResponsibleUserId)
@@ -49,7 +45,15 @@ public sealed class TaskMConfiguration : IEntityTypeConfiguration<TaskM>
             .HasForeignKey(t => t.PriorityId)
             .OnDelete(DeleteBehavior.Restrict);
 
+        builder.HasOne(t => t.Department)
+            .WithMany()
+            .HasForeignKey(t => t.DepartmentId)
+            .OnDelete(DeleteBehavior.Restrict);
+
         builder.HasIndex(t => new { t.CustomerId, t.ProjectId });
+        builder.HasIndex(t => t.MainResponsibleUserId);
+        builder.HasIndex(t => t.DueDate);
+
         builder.HasQueryFilter(t => t.IsActive);
     }
 }
